@@ -4,19 +4,25 @@ import nextPlugin from "@next/eslint-plugin-next";
 
 export default [
   {
-    ignores: ["node_modules/**", ".next/**"], // optional, but recommended
+    ignores: ["node_modules/**", ".next/**"],
   },
   {
     files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
+      parser: require.resolve("@babel/eslint-parser"),
+      parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+          presets: ["next/babel"],
+        },
+      },
     },
     plugins: {
       "@next/next": nextPlugin,
     },
     rules: {
-      // Next.js recommended rules
       ...nextPlugin.configs["core-web-vitals"].rules,
     },
   },
