@@ -1,10 +1,5 @@
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    // ✅ Skip ESLint checks during builds (local + Vercel)
-    ignoreDuringBuilds: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -17,4 +12,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-
